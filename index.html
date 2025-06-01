@@ -11,9 +11,320 @@
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
     <title>I.E. Nuestra Señora de Lourdes - Política de Privacidad de Datos</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --cream: #fef7ed;
+            --dark-blue: #1e40af;
+            --text-dark: #1e293b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23dbeafe" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23fef7ed" opacity="0.3"/><circle cx="800" cy="300" r="120" fill="%232563eb" opacity="0.2"/><circle cx="1000" cy="100" r="60" fill="%23fef7ed" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            background: var(--cream);
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Privacy Policy Section */
+        .privacy-policy {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content {
+            background: var(--light-blue);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .privacy-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .privacy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .privacy-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--light-blue);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: var(--light-blue);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        /* Legal sections */
+        .legal-section {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+
+        .legal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .legal-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .legal-content h4 {
+            color: var(--dark-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .legal-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-blue);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .privacy-content, .legal-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,6 +336,8 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#privacidad">Privacidad</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#terminos">Términos</a></li>
+                        <li><a href="#eliminacion">Eliminación de Datos</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                     <div class="mobile-menu" onclick="toggleMenu()">
@@ -91,6 +404,145 @@
         </div>
     </section>
 
+    <section id="terminos" class="legal-section">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 3rem;">Términos y Condiciones de Servicio</h2>
+            
+            <div class="legal-content">
+                <h3>1. Aceptación de los Términos</h3>
+                <p>Al acceder y utilizar los servicios educativos de la I.E. Nuestra Señora de Lourdes, usted acepta cumplir con estos términos y condiciones. Si no está de acuerdo con alguno de estos términos, no debe utilizar nuestros servicios.</p>
+
+                <h3>2. Servicios Educativos</h3>
+                <p>Nuestra institución ofrece:</p>
+                <ul>
+                    <li>Educación Básica Regular (Inicial, Primaria y Secundaria)</li>
+                    <li>Formación técnica en especialidades como Secretariado, Enfermería, Contabilidad y Diseño Gráfico</li>
+                    <li>Servicios de orientación y tutoría</li>
+                    <li>Actividades extracurriculares</li>
+                </ul>
+
+                <h3>3. Obligaciones del Usuario</h3>
+                <h4>Estudiantes:</h4>
+                <ul>
+                    <li>Cumplir con el reglamento interno de la institución</li>
+                    <li>Asistir regularmente a clases</li>
+                    <li>Mantener un comportamiento respetuoso</li>
+                    <li>Cuidar las instalaciones y materiales educativos</li>
+                </ul>
+                
+                <h4>Padres de Familia:</h4>
+                <ul>
+                    <li>Participar activamente en el proceso educativo</li>
+                    <li>Cumplir con las obligaciones económicas establecidas</li>
+                    <li>Asistir a reuniones y eventos convocados por la institución</li>
+                    <li>Proporcionar información veraz y actualizada</li>
+                </ul>
+
+                <h3>4. Derechos de la Institución</h3>
+                <p>La I.E. Nuestra Señora de Lourdes se reserva el derecho de:</p>
+                <ul>
+                    <li>Modificar el plan curricular según normativas educativas</li>
+                    <li>Establecer horarios y calendarios académicos</li>
+                    <li>Aplicar medidas disciplinarias cuando sea necesario</li>
+                    <li>Suspender servicios por incumplimiento de obligaciones</li>
+                </ul>
+
+                <h3>5. Limitación de Responsabilidad</h3>
+                <p>La institución no será responsable por:</p>
+                <ul>
+                    <li>Pérdida de objetos personales dentro de las instalaciones</li>
+                    <li>Accidentes ocurridos fuera del horario escolar</li>
+                    <li>Interrupciones del servicio por causas de fuerza mayor</li>
+                </ul>
+
+                <h3>6. Modificaciones</h3>
+                <p>Estos términos pueden ser modificados en cualquier momento. Las modificaciones serán comunicadas a través de los canales oficiales de la institución y entrarán en vigencia inmediatamente.</p>
+
+                <h3>7. Ley Aplicable</h3>
+                <p>Estos términos se rigen por las leyes de la República del Perú y la normativa educativa vigente del Ministerio de Educación.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="eliminacion" class="legal-section">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 3rem;">Eliminación de Datos de Usuario</h2>
+            
+            <div class="legal-content">
+                <h3>Derecho a la Eliminación de Datos Personales</h3>
+                <p>En cumplimiento con la Ley de Protección de Datos Personales del Perú y normativas internacionales, reconocemos su derecho a solicitar la eliminación de sus datos personales bajo las siguientes circunstancias:</p>
+
+                <h4>Casos en los que puede solicitar la eliminación:</h4>
+                <ul>
+                    <li>Cuando los datos ya no sean necesarios para los fines para los que fueron recopilados</li>
+                    <li>Cuando retire su consentimiento y no exista otra base legal para el tratamiento</li>
+                    <li>Cuando los datos hayan sido tratados de manera ilícita</li>
+                    <li>Cuando sea necesario para cumplir con una obligación legal</li>
+                </ul>
+
+                <h4>Excepciones importantes:</h4>
+                <p>No podremos eliminar sus datos cuando:</p>
+                <ul>
+                    <li>Sean necesarios para cumplir con obligaciones legales educativas</li>
+                    <li>Se requieran para el cumplimiento de normativas del Ministerio de Educación</li>
+                    <li>Sean necesarios para la defensa de reclamaciones legales</li>
+                    <li>Estén relacionados con registros académicos oficiales que deben conservarse por ley</li>
+                </ul>
+
+                <h3>Cómo solicitar la eliminación de sus datos</h3>
+                
+                <h4>Método 1: Solicitud por correo electrónico</h4>
+                <p>Envíe un correo a: <strong>privacidad@nsdelourdes.com</strong> con el asunto "Solicitud de Eliminación de Datos" incluyendo:</p>
+                <ul>
+                    <li>Nombre completo del titular de los datos</li>
+                    <li>Número de DNI o documento de identidad</li>
+                    <li>Especificación de qué datos desea eliminar</li>
+                    <li>Motivo de la solicitud</li>
+                    <li>Copia del documento de identidad</li>
+                </ul>
+
+                <h4>Método 2: Solicitud presencial</h4>
+                <p>Acérquese a nuestras oficinas administrativas en:</p>
+                <ul>
+                    <li><strong>Dirección:</strong> Av. Angamos Este 1234, Surquillo - Lima</li>
+                    <li><strong>Horario:</strong> Lunes a Viernes de 8:00 AM a 4:00 PM</li>
+                    <li><strong>Oficina:</strong> Secretaría Académica</li>
+                </ul>
+
+                <h4>Método 3: Formulario web</h4>
+                <p>Complete nuestro formulario de solicitud de eliminación de datos disponible en la sección "Contacto" especificando en el mensaje que desea eliminar sus datos personales.</p>
+
+                <h3>Proceso de eliminación</h3>
+                <ol>
+                    <li><strong>Recepción:</strong> Confirmaremos la recepción de su solicitud en un plazo de 2 días hábiles</li>
+                    <li><strong>Verificación:</strong> Verificaremos su identidad y validaremos la solicitud (5-10 días hábiles)</li>
+                    <li><strong>Evaluación:</strong> Evaluaremos si procede la eliminación según las excepciones legales</li>
+                    <li><strong>Eliminación:</strong> Si procede, eliminaremos los datos en un plazo máximo de 30 días</li>
+                    <li><strong>Confirmación:</strong> Le notificaremos cuando el proceso haya sido completado</li>
+                </ol>
+
+                <h3>Datos de menores de edad</h3>
+                <p>Para solicitudes relacionadas con datos de menores de edad, debe ser realizada por:</p>
+                <ul>
+                    <li>Padres o tutores legales</li>
+                    <li>El propio menor si es mayor de 14 años (con autorización de los padres)</li>
+                </ul>
+
+                <h3>Contacto para dudas sobre eliminación de datos</h3>
+                <div style="background: var(--light-blue); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                    <p><strong>Oficial de Protección de Datos:</strong> Lic. María González</p>
+                    <p><strong>Email:</strong> privacidad@nsdelourdes.com</p>
+                    <p><strong>Teléfono:</strong> (01) 4484148 - Anexo 102</p>
+                    <p><strong>WhatsApp:</strong> 913595327</p>
+                </div>
+
+                <p style="margin-top: 2rem; font-style: italic; color: var(--dark-blue);">
+                    <strong>Nota importante:</strong> El derecho a la eliminación no es absoluto y debe equilibrarse con otros derechos fundamentales y obligaciones legales. Nuestra institución evaluará cada solicitud de manera individual y le informará sobre la procedencia de la misma.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="nosotros" class="about">
         <div class="container">
             <h2>Sobre Nuestra Institución</h2>
@@ -150,10 +602,63 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 I.E. Nuestra Señora de Lourdes - Todos los derechos reservados</p>
-            <p>Política de Privacidad | Protección de Datos Estudiantiles</p>
+            <p>Política de Privacidad | Términos de Servicio | Eliminación de Datos</p>
         </div>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
 
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Close mobile menu if open
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(30, 64, 175, 0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary-blue), var(--dark-blue))';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe privacy cards and about cards
+        document.querySelectorAll('.privacy-card, .about-card, .contact-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
